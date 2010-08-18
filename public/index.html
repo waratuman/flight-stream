@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Flight Stream</title>
+    <meta name="author" content="Jonathan Bracy">
+
+    <link href="/reset.css" media="screen" rel="stylesheet" type="text/css" /> 
+    <link href="/text.css" media="screen" rel="stylesheet" type="text/css" /> 
+    <link href="/application.css" media="screen" rel="stylesheet" type="text/css" />
+
+    <script src="/jquery.js" type="text/javascript"></script>
+    <script src="/application.js" type="text/javascript"></script>
+  </head>
+  
+  <body>
+	
+    <header id="header">
+      <h1><a href="/">Flight Stream</a></h1>
+      <p>Real Time Flight Updates</p>
+    </header>
+    
+    <div id="content">
+      <ul id="airport-tabs">
+        <li><a href="#BOS">BOS</a></li>
+      </ul>
+      
+      <section id="BOS" class="airport-feed">
+        <header>
+          <h2>General Edward Lawrence Logan International Airport</h2>
+          <p>No Delays</p>
+        </header>
+        
+        <div class="weather-bar">
+          KBOS 110154Z 12004KT 10SM CLR 23/18 A2984 RMK AO2 SLP105 T02280178
+        </div>
+        
+        <table class="flight-updates" summary="Flight Updates" cellspacing="0" cellpadding="0">
+          <thead>
+            <tr>
+              <th>Flight</th>
+              <th>Origin</th>
+              <th>Gate</th>
+              <th>Departure Status</th>
+              <th>Destination</th>
+              <th>Gate</th>
+              <th>Arrival Status</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </section>
+    </div>
+    
+    <footer id="footer">Copyright &copy; 2010 Jonathan Bracy</footer>
+   
+  </body>
+  
+</html>
