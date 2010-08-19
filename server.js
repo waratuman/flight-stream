@@ -7,6 +7,11 @@ var fs = require('fs'),
 	http = require('http'),
 	path = require('path'),
 	redis = require('redis-client');
+	
+var db = redis.createClient(9281, 'goosefish.redistogo.com');
+var dbAuth = function() { db.auth('dc64f7b818f4e3ec2e3d3d033e3e5ff4'); }
+db.addListener('connected', dbAuth);
+db.addListener('reconnected', dbAuth);
 
 var httpServer = http.createServer( function(request, response) {
 	var pathname = url.parse(request.url).pathname;
@@ -33,6 +38,15 @@ var httpServer = http.createServer( function(request, response) {
 			response.end();
 		});
 	});
+});
+
+db.subscribeTo("flight_stream", function(channel, message, pattern) {
+	try { var flight = JSON.parse(message); }
+	catch (SyntaxError) { return false; }
+	
+	if ( flight.origin.iata == "BOS" || flight.destination.iata == "BOS") {
+		server.broadcast(flight);
+	}
 });
 
 var server = ws.createServer({}, httpServer);
