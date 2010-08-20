@@ -44,7 +44,7 @@ var httpServer = http.createServer( function(request, response) {
 
 var server = ws.createServer({}, httpServer);
 
-db.subscribeTo("*", function(channel, message, pattern) {
+db.subscribeTo("flight_stream", function(channel, message, pattern) {
 	try { var flight = JSON.parse(message); }
 	catch (SyntaxError) { return false; }
 
