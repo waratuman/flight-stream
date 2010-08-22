@@ -246,3 +246,16 @@ sample message that you can use:
 If you are using the Redis instance used throughout the tutorial, you will
 start seeing flight come up. I will be publishing some data every few seconds
 to the instance for the coming days.
+
+## Basic Operations
+
+Basic operations were not really covered in this tutorial, so here are some
+examples to get you started.
+
+    db.set("foo", 1)
+	db.get("foo", function(err, value) { sys.puts(value); });
+	db.randomkey(function(err, key) { sys.puts(key); });
+	db.hset("bar", "hi", "world");
+	db.hget("bar", "hi", function(err, value) { sys.puts(value); });
+	db.hgetall("bar", function(err, data) { sys.puts(data["hi"]); });
+	
